@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Information Security in Organizations</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,36 +17,36 @@
         }
 
         body {
-            background-color: #e2e8f0; /* Soft canvas background */
+            background-color: #e2e8f0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Prevent scrolling */
+            overflow: hidden; /* Prevent body scrolling */
             font-family: 'Inter', sans-serif;
-            color: #334155; /* Slate 700 - Professional Dark Gray */
+            color: #334155; 
             counter-reset: slide-counter;
         }
 
         .slide-container {
             background-color: #ffffff;
-            border-radius: 8px; /* Sharper, corporate corners */
+            border-radius: 8px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
             display: flex;
             flex-direction: column;
             width: 1280px;
-            height: 720px; /* Standard 16:9 slide size */
-            padding: 50px 70px; /* Tightened padding to maximize content area */
-            position: absolute; /* Stack slides */
+            height: 720px; 
+            padding: 50px 70px;
+            position: absolute; 
             top: 50%;
             left: 50%;
-            transform: translate(100vw, -50%) scale(0.85); /* Start off-screen to the right */
+            transform: translate(100vw, -50%) scale(0.85); 
             opacity: 0;
             visibility: hidden;
-            transition: all 0.8s cubic-bezier(0.25, 1, 0.2, 1); /* Smooth, elegant glide */
-            overflow: hidden; /* Prevent any overflow */
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.2, 1);
+            overflow: hidden; 
             border: 1px solid #cbd5e1;
             z-index: 1;
         }
@@ -60,7 +60,7 @@
         }
 
         .slide-container.past {
-            transform: translate(-150vw, -50%) scale(0.85); /* Move off-screen to the left */
+            transform: translate(-150vw, -50%) scale(0.85); 
             opacity: 0;
             visibility: hidden;
             z-index: 1;
@@ -79,68 +79,15 @@
         .slide-container.active .title-layout {
             opacity: 1;
             transform: translateY(0);
-            transition-delay: 0.3s; /* Title fades in shortly after slide arrives */
+            transition-delay: 0.3s;
         }
 
         .slide-container.active .content-area {
             opacity: 1;
             transform: translateY(0);
-            transition-delay: 0.45s; /* Content fades in last */
-        }
-        
-        /* Navigation Controls */
-        .nav-controls {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 20px;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 10px 20px;
-            border-radius: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            backdrop-filter: blur(5px);
-            border: 1px solid #e2e8f0;
+            transition-delay: 0.45s;
         }
 
-        .nav-btn {
-            background: none;
-            border: none;
-            color: #1e40af;
-            font-size: 20px;
-            cursor: pointer;
-            padding: 5px 10px;
-            transition: transform 0.2s, color 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .nav-btn:hover {
-            transform: scale(1.2);
-            color: #0ea5e9;
-        }
-
-        /* Top Progress Bar */
-        .progress-bar-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-            background-color: #cbd5e1;
-            z-index: 1000;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #1e40af, #0ea5e9);
-            transition: width 0.5s ease-out;
-        }
-        
         /* Subtle Abstract Background */
         .slide-bg {
             position: absolute;
@@ -177,418 +124,194 @@
 
         .slide-container > * { position: relative; z-index: 1; }
 
-        /* --- 2. TYPOGRAPHY (Scaled for perfect fit) --- */
+        /* --- 2. TYPOGRAPHY --- */
         h1, h2, h3, h4 {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            color: #0f172a; /* Deep Slate */
-        }
-
-        h1 {
-            font-size: 64px;
-            line-height: 1.1;
-            letter-spacing: -1px;
-            text-align: center;
-        }
-        
-        h1 span { color: #1e40af; /* Corporate Royal Blue */ }
-
-        .slide-title {
-            font-size: 36px;
-            line-height: 1.2;
-            margin-bottom: 25px;
-            width: 100%;
-            border-bottom: 2px solid #f1f5f9;
-            padding-bottom: 15px;
             color: #0f172a;
         }
 
-        h3 {
-            font-size: 24px;
-            margin-bottom: 12px;
-            color: #1e40af;
+        h1 { font-size: 64px; line-height: 1.1; letter-spacing: -1px; text-align: center; }
+        h1 span { color: #1e40af; }
+
+        .slide-title {
+            font-size: 36px; line-height: 1.2; margin-bottom: 25px; width: 100%;
+            border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; color: #0f172a;
         }
 
-        p, li {
-            font-size: 18px;
-            line-height: 1.5;
-            color: #475569;
-        }
-
+        h3 { font-size: 24px; margin-bottom: 12px; color: #1e40af; }
+        p, li { font-size: 18px; line-height: 1.5; color: #475569; }
         p { margin-bottom: 15px; }
         strong { color: #1e293b; font-weight: 600; }
 
-        .subtitle {
-            font-size: 22px;
-            color: #64748b;
-            font-weight: 500;
-            margin-top: 20px;
-            text-align: center;
-        }
+        .subtitle { font-size: 22px; color: #64748b; font-weight: 500; margin-top: 20px; text-align: center; }
 
         .presenter-info {
-            margin-top: 40px;
-            text-align: center;
-            background: #f8fafc;
-            padding: 20px 40px;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-            border-top: 3px solid #1e40af;
+            margin-top: 40px; text-align: center; background: #f8fafc;
+            padding: 20px 40px; border-radius: 8px; border: 1px solid #e2e8f0; border-top: 3px solid #1e40af;
         }
-
-        .presenter-info p {
-            font-size: 16px;
-            color: #475569;
-            margin-bottom: 5px;
-            line-height: 1.5;
-        }
-
-        .presenter-info strong {
-            color: #0f172a;
-        }
+        .presenter-info p { font-size: 16px; margin-bottom: 5px; }
+        .presenter-info strong { color: #0f172a; }
 
         .content-area {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-            justify-content: flex-start; /* Prevent vertical centering spacing issues */
-            width: 100%;
-            height: 100%;
+            display: flex; flex-direction: column; flex-grow: 1; justify-content: flex-start; width: 100%; height: 100%;
         }
 
         /* --- 3. LAYOUT & GRIDS --- */
+        .title-layout { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%; }
+        .title-layout hr { background: linear-gradient(90deg, #1e40af, #0ea5e9); border: none; height: 6px; margin: 30px auto; width: 100px; border-radius: 3px; }
 
-        /* Title Slide */
-        .title-layout {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            width: 100%;
-        }
+        .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; width: 100%; align-items: center; }
+        .two-column ul { list-style: none; padding: 0; margin: 0; }
+        .two-column li { margin-bottom: 16px; padding-left: 28px; position: relative; }
+        .two-column li::before { content: '\f105'; font-family: 'Font Awesome 6 Free'; font-weight: 900; color: #0ea5e9; font-size: 14px; position: absolute; left: 0; top: 5px; }
 
-        .title-layout hr {
-            background: linear-gradient(90deg, #1e40af, #0ea5e9);
-            border: none;
-            height: 6px;
-            margin: 30px auto;
-            width: 100px;
-            border-radius: 3px;
-        }
+        .image-wrapper { border-radius: 8px; height: 340px; width: 100%; overflow: hidden; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0; }
+        .image-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .rounded-image-layout .image-wrapper { border-radius: 50%; flex-shrink: 0; height: 350px; width: 350px; margin: 0 auto; border: 6px solid #f8fafc; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
 
-        /* Two Column Standard */
-        .two-column {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            width: 100%;
-            align-items: center;
-        }
+        .bullet-list { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .bullet-item-box { background: #f8fafc; border-left: 4px solid #1e40af; border-radius: 6px; padding: 20px; display: flex; align-items: flex-start; gap: 15px; border-top: 1px solid #e2e8f0; border-right: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+        .bullet-item-box i { color: #1e40af; font-size: 24px; margin-top: 3px; }
+        .bullet-item-box div p { margin-bottom: 0; font-size: 15px; line-height: 1.4; }
+        .bullet-item-box div strong { display: block; font-size: 18px; margin-bottom: 4px; color: #0f172a; }
 
-        .two-column ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .two-column li {
-            margin-bottom: 16px;
-            padding-left: 28px;
-            position: relative;
-        }
-
-        .two-column li::before {
-            content: '\f105'; /* Chevron right */
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            color: #0ea5e9;
-            font-size: 14px;
-            position: absolute;
-            left: 0;
-            top: 5px;
-        }
-
-        /* Images */
-        .image-wrapper {
-            border-radius: 8px;
-            height: 340px; /* Reduced to fit */
-            width: 100%;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
-        }
-
-        .image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Rounded Image Layout */
-        .rounded-image-layout .image-wrapper {
-            border-radius: 50%;
-            flex-shrink: 0;
-            height: 350px;
-            width: 350px;
-            margin: 0 auto;
-            border: 6px solid #f8fafc;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-
-        /* Styled Bullet Points (6 Grid) */
-        .bullet-list {
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px; /* Tighter gap */
-        }
-
-        .bullet-item-box {
-            background: #f8fafc;
-            border-left: 4px solid #1e40af;
-            border-radius: 6px;
-            padding: 20px;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            border-top: 1px solid #e2e8f0;
-            border-right: 1px solid #e2e8f0;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .bullet-item-box i {
-            color: #1e40af;
-            font-size: 24px;
-            margin-top: 3px;
-        }
-
-        .bullet-item-box div p {
-            margin-bottom: 0;
-            font-size: 15px;
-            line-height: 1.4;
-        }
-
-        .bullet-item-box div strong {
-            display: block;
-            font-size: 18px;
-            margin-bottom: 4px;
-            color: #0f172a;
-        }
-
-        /* Tiled Content (Icons) */
-        .tiled-content {
-            display: flex;
-            gap: 30px;
-            width: 100%;
-            align-items: stretch;
-            justify-content: center;
-        }
-
-        .tile {
-            background-color: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 30px 25px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .tile .icon {
-            background: #eff6ff;
-            color: #1e40af;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            margin-bottom: 15px;
-        }
-        
+        .tiled-content { display: flex; gap: 30px; width: 100%; align-items: stretch; justify-content: center; }
+        .tile { background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 30px 25px; flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .tile .icon { background: #eff6ff; color: #1e40af; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; margin-bottom: 15px; }
         .tile p { font-size: 16px; margin-bottom: 0; }
 
-        /* Tiled Content (Images) */
-        .image-tile {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            background-color: #f8fafc;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-        }
-
-        .image-tile .image-wrapper {
-            height: 180px; /* Compact height */
-            width: 100%;
-            border-radius: 0;
-            border: none;
-            border-bottom: 1px solid #e2e8f0;
-            box-shadow: none;
-        }
-
-        .image-tile-content {
-            padding: 20px;
-            text-align: center;
-        }
-        
+        .image-tile { flex: 1; display: flex; flex-direction: column; background-color: #f8fafc; border-radius: 8px; overflow: hidden; border: 1px solid #e2e8f0; }
+        .image-tile .image-wrapper { height: 180px; width: 100%; border-radius: 0; border: none; border-bottom: 1px solid #e2e8f0; box-shadow: none; }
+        .image-tile-content { padding: 20px; text-align: center; }
         .image-tile-content h3 { color: #1e40af; margin-bottom: 8px; }
         .image-tile-content p { font-size: 15px; margin-bottom: 0; }
 
-        /* Two Column Tiled Text */
-        .two-column.tiled {
-            gap: 30px;
-            align-items: stretch;
-        }
-        
-        .two-column.tiled > div {
-            background-color: #f8fafc;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
+        .two-column.tiled { gap: 30px; align-items: stretch; }
+        .two-column.tiled > div { background-color: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; padding: 40px; display: flex; flex-direction: column; justify-content: flex-start; }
 
-        /* Bleed Image Layout */
-        .slide-container.bleed-image-layout {
-            padding: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            align-items: center; /* Center content vertically */
-        }
+        .slide-container.bleed-image-layout { padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: center; }
+        .slide-container.bleed-image-layout > .content-container { padding: 50px 60px; display: flex; flex-direction: column; height: 100%; justify-content: center; }
+        .slide-container.bleed-image-layout > .image-container { height: 100%; width: 100%; overflow: hidden; }
+        .slide-container.bleed-image-layout img.bleed-image-side { height: 720px; width: 100%; object-fit: cover; object-position: center; display: block; }
 
-        .slide-container.bleed-image-layout > .content-container {
-            padding: 50px 60px;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            justify-content: center;
-        }
-
-        .slide-container.bleed-image-layout > .image-container {
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .slide-container.bleed-image-layout img.bleed-image-side {
-            height: 720px;
-            width: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-        }
-
-        /* Timeline Layout */
-        .timeline-layout {
-            display: flex;
-            align-items: stretch;
-            justify-content: space-between;
-            position: relative;
-            width: 100%;
-            height: 400px;
-            margin-top: 40px;
-        }
-
-        .timeline-line {
-            background-color: #cbd5e1;
-            height: 4px;
-            left: 0;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-2px);
-            width: 100%;
-            z-index: 0;
-        }
-
-        .timeline-item {
-            position: relative;
-            text-align: center;
-            width: 23%;
-            z-index: 1;
-        }
-
-        .timeline-item::after {
-            background-color: #ffffff;
-            border-radius: 50%;
-            border: 4px solid #0ea5e9;
-            content: '';
-            height: 20px;
-            left: 50%;
-            position: absolute;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 20px;
-        }
-
-        .timeline-item .content-wrapper {
-            position: absolute;
-            width: 100%;
-            left: 0;
-            padding: 0 10px;
-        }
-
+        .timeline-layout { display: flex; align-items: stretch; justify-content: space-between; position: relative; width: 100%; height: 400px; margin-top: 40px; }
+        .timeline-line { background-color: #cbd5e1; height: 4px; left: 0; position: absolute; top: 50%; transform: translateY(-2px); width: 100%; z-index: 0; }
+        .timeline-item { position: relative; text-align: center; width: 23%; z-index: 1; }
+        .timeline-item::after { background-color: #ffffff; border-radius: 50%; border: 4px solid #0ea5e9; content: ''; height: 20px; left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%); width: 20px; }
+        .timeline-item .content-wrapper { position: absolute; width: 100%; left: 0; padding: 0 10px; }
         .timeline-item:nth-child(odd) .content-wrapper { bottom: 50%; margin-bottom: 25px; }
         .timeline-item:nth-child(even) .content-wrapper { top: 50%; margin-top: 25px; }
-
         .timeline-item h3 { font-size: 20px; margin-bottom: 8px; }
         .timeline-item p { font-size: 15px; }
 
-        /* Q&A Layout */
-        .qa-layout {
-            text-align: center;
-            width: 100%;
-            margin: auto;
-            padding-top: 100px;
-        }
-
-        .qa-layout i {
-            font-size: 70px;
-            color: #1e40af;
-            margin-bottom: 25px;
-        }
-
+        .qa-layout { text-align: center; width: 100%; margin: auto; padding-top: 100px; }
+        .qa-layout i { font-size: 70px; color: #1e40af; margin-bottom: 25px; }
         .qa-layout h2 { font-size: 56px; margin-bottom: 20px; }
         .qa-layout p { font-size: 24px; color: #475569; max-width: 800px; margin: 0 auto; }
 
-        /* Stats Layout */
-        .stats-container {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            gap: 30px;
-            margin-top: 20px;
-        }
-        
-        .stat-box {
-            background-color: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 40px 30px;
-            text-align: center;
-            flex: 1;
-            border-top: 4px solid #1e40af;
-        }
-        
-        .stat-number {
-            font-size: 48px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            color: #1e40af;
-            margin-bottom: 10px;
-        }
-        
+        .stats-container { display: flex; justify-content: space-between; width: 100%; gap: 30px; margin-top: 20px; }
+        .stat-box { background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 40px 30px; text-align: center; flex: 1; border-top: 4px solid #1e40af; }
+        .stat-number { font-size: 48px; font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: #1e40af; margin-bottom: 10px; }
         .stat-desc { font-size: 16px; color: #475569; line-height: 1.5; }
 
+        /* Navigation Controls & Progress Bar */
+        .nav-controls {
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 20px; z-index: 100;
+            background: rgba(255, 255, 255, 0.9); padding: 10px 20px; border-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.15); border: 1px solid #e2e8f0;
+        }
+        .nav-btn { background: none; border: none; color: #1e40af; font-size: 20px; cursor: pointer; padding: 5px 10px; transition: transform 0.2s, color 0.2s; }
+        .nav-btn:hover { transform: scale(1.2); color: #0ea5e9; }
+
+        .progress-bar-container { position: fixed; top: 0; left: 0; width: 100%; height: 5px; background-color: #cbd5e1; z-index: 1000; }
+        .progress-bar-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #1e40af, #0ea5e9); transition: width 0.5s ease-out; }
+
+        /* --- 4. MOBILE RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 900px) {
+            .slide-container {
+                width: 100vw;
+                height: 100vh;
+                border-radius: 0;
+                padding: 40px 25px 100px 25px; /* Extra bottom padding for nav/scrolling */
+                border: none;
+                overflow-y: auto; /* Enables vertical scrolling inside slide on small screens */
+                overflow-x: hidden;
+                justify-content: flex-start;
+            }
+
+            .slide-container.active {
+                /* Reset translation logic since we occupy 100vw/100vh */
+                transform: translate(-50%, -50%) scale(1); 
+            }
+
+            h1 { font-size: 40px; }
+            .slide-title { font-size: 26px; margin-bottom: 20px; }
+            h3 { font-size: 20px; }
+            p, li { font-size: 15px; }
+
+            .two-column, .bullet-list {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .tiled-content, .stats-container, .two-column.tiled {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .image-wrapper { height: 220px; }
+            
+            .rounded-image-layout { flex-direction: column-reverse; } /* Put text above image on mobile */
+            .rounded-image-layout .image-wrapper {
+                width: 180px;
+                height: 180px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+
+            /* Fix timeline for mobile */
+            .timeline-layout {
+                flex-direction: column;
+                height: auto;
+                gap: 25px;
+                margin-top: 10px;
+            }
+            .timeline-line { display: none; }
+            .timeline-item {
+                width: 100%;
+                text-align: left;
+                padding-left: 40px;
+            }
+            .timeline-item::after {
+                left: 10px;
+                top: 20px;
+                transform: none;
+            }
+            .timeline-item .content-wrapper {
+                position: relative;
+                top: auto !important;
+                bottom: auto !important;
+                margin: 0 !important;
+                padding: 0;
+            }
+
+            /* Bleed Image adjustments */
+            .slide-container.bleed-image-layout { display: flex; flex-direction: column; }
+            .slide-container.bleed-image-layout > .content-container { padding: 0; }
+            .slide-container.bleed-image-layout > .image-container { display: none; } /* Hide decorative images to save scroll space */
+
+            /* Layout Fixes */
+            .qa-layout { padding-top: 20px; }
+            .qa-layout h2 { font-size: 32px; }
+            .qa-layout p { font-size: 16px; }
+            .presenter-info { padding: 15px; }
+
+            /* Hide desktop footer text on mobile */
+            .slide-container::before, .slide-container::after { display: none; }
+            
+            .nav-controls { bottom: 15px; padding: 5px 15px; }
+        }
     </style>
 </head>
 <body>
@@ -645,7 +368,7 @@
     <div class="slide-bg"></div>
     <h2 class="slide-title">The Real-World Financial Impact</h2>
     <div class="content-area">
-        <p style="text-align: center; font-size: 22px; margin-bottom: 20px; padding: 0 50px;">Cyber threats have evolved from IT inconveniences into major financial and existential business risks.</p>
+        <p style="text-align: center; font-size: 22px; margin-bottom: 20px;">Cyber threats have evolved from IT inconveniences into major financial and existential business risks.</p>
         <div class="stats-container">
             <div class="stat-box">
                 <div class="stat-number">$4.45M</div>
@@ -791,7 +514,7 @@
         <div class="tiled-content">
             <div class="image-tile">
                 <div class="image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1509822929063-6b6cfc9b42f2?auto=format&fit=crop&q=80&w=800" alt="Confidentiality Padlock">
+                    <img src="https://images.unsplash.com/photo-1509822929063-6b6cfc9b42f2?auto=format&fit=crop&q=80&w=800" onerror="this.src='https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800'" alt="Confidentiality Padlock">
                 </div>
                 <div class="image-tile-content">
                     <h3>Confidentiality</h3>
@@ -845,7 +568,7 @@
             <div class="tile">
                 <div class="icon"><i class="fa-solid fa-file-signature"></i></div>
                 <h3>Administrative Controls</h3>
-                <p>The "human" side of security. Includes organizational policies, standard operating procedures, employee training, and background checks designed to guide user behavior.</p>
+                <p>The "human" side of security. Includes organizational policies, standard operating procedures, employee training, and background checks.</p>
             </div>
             <div class="tile">
                 <div class="icon"><i class="fa-solid fa-microchip"></i></div>
@@ -912,7 +635,7 @@
                 <i class="fa-solid fa-credit-card"></i>
                 <div>
                     <strong>PCI-DSS (Payment Cards)</strong>
-                    <p>Global security standard for organizations that handle, process, or store branded credit cards from major card schemes.</p>
+                    <p>Global security standard for organizations that handle, process, or store branded credit cards.</p>
                 </div>
             </div>
             <div class="bullet-item-box">
@@ -1058,35 +781,26 @@
         <p style="margin-bottom: 25px; color: #64748b;">The following sources inform the policies, statistics, and best practices outlined in this presentation:</p>
         
         <div style="display: flex; flex-direction: column; gap: 20px; width: 100%;">
-            
-            <!-- APA Reference 1 -->
             <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #1e40af; border-radius: 6px; padding: 20px 30px;">
-                <p style="margin-bottom: 0; padding-left: 40px; text-indent: -40px; font-size: 17px; line-height: 1.6; color: #0f172a;">
+                <p style="margin-bottom: 0; padding-left: 40px; text-indent: -40px; font-size: 16px; line-height: 1.6; color: #0f172a;">
                     IBM Security. (2023). <em>Cost of a data breach report 2023</em>. IBM Corporation. https://www.ibm.com/reports/data-breach
                 </p>
             </div>
-
-            <!-- APA Reference 2 -->
             <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #1e40af; border-radius: 6px; padding: 20px 30px;">
-                <p style="margin-bottom: 0; padding-left: 40px; text-indent: -40px; font-size: 17px; line-height: 1.6; color: #0f172a;">
+                <p style="margin-bottom: 0; padding-left: 40px; text-indent: -40px; font-size: 16px; line-height: 1.6; color: #0f172a;">
                     National Institute of Standards and Technology. (2020). <em>Zero trust architecture</em> (NIST Special Publication 800-207). U.S. Department of Commerce. https://doi.org/10.6028/NIST.SP.800-207
                 </p>
             </div>
-
-            <!-- APA Reference 3 -->
             <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #1e40af; border-radius: 6px; padding: 20px 30px;">
-                <p style="margin-bottom: 0; padding-left: 40px; text-indent: -40px; font-size: 17px; line-height: 1.6; color: #0f172a;">
+                <p style="margin-bottom: 0; padding-left: 40px; text-indent: -40px; font-size: 16px; line-height: 1.6; color: #0f172a;">
                     Stallings, W., & Brown, L. (2018). <em>Computer security: Principles and practice</em> (4th ed.). Pearson Education.
                 </p>
             </div>
-
-            <!-- APA Reference 4 -->
             <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #1e40af; border-radius: 6px; padding: 20px 30px;">
-                <p style="margin-bottom: 0; padding-left: 40px; text-indent: -40px; font-size: 17px; line-height: 1.6; color: #0f172a;">
+                <p style="margin-bottom: 0; padding-left: 40px; text-indent: -40px; font-size: 16px; line-height: 1.6; color: #0f172a;">
                     Whitman, M. E., & Mattord, H. J. (2021). <em>Principles of information security</em> (7th ed.). Cengage Learning.
                 </p>
             </div>
-
         </div>
     </div>
 </div>
@@ -1104,20 +818,21 @@
 
     // Function to handle switching slides
     function showSlide(index) {
-        // Boundary management (Wrap around to start/end)
         if (index >= slides.length) currentSlide = 0;
         else if (index < 0) currentSlide = slides.length - 1;
         else currentSlide = index;
 
-        // Apply spatial classes based on relative position
         slides.forEach((slide, i) => {
-            slide.classList.remove('active', 'past', 'future'); // Reset state
+            slide.classList.remove('active', 'past', 'future'); 
+            // Reset scroll position when hidden
+            if(i !== currentSlide) slide.scrollTop = 0;
+            
             if (i === currentSlide) {
-                slide.classList.add('active'); // Center screen
+                slide.classList.add('active'); 
             } else if (i < currentSlide) {
-                slide.classList.add('past'); // Thrown to the left
+                slide.classList.add('past'); 
             } else {
-                slide.classList.add('future'); // Waiting on the right (default CSS state)
+                slide.classList.add('future'); 
             }
         });
 
@@ -1136,7 +851,7 @@
     // Keyboard interactions
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
-            e.preventDefault(); // Stop spacebar from scrolling page down normally
+            e.preventDefault(); 
             nextSlide();
         } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
             e.preventDefault();
@@ -1144,22 +859,32 @@
         }
     });
 
-    // Touch/Swipe interactions for tablets
+    // Mobile Swipe interactions (with safety checks for vertical scrolling)
     let touchStartX = 0;
     let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
     
     document.addEventListener('touchstart', e => {
         touchStartX = e.changedTouches[0].screenX;
-    });
+        touchStartY = e.changedTouches[0].screenY;
+    }, {passive: true});
 
     document.addEventListener('touchend', e => {
         touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
         handleSwipe();
-    });
+    }, {passive: true});
 
     function handleSwipe() {
-        if (touchEndX < touchStartX - 50) nextSlide(); // Swipe left -> Next slide
-        if (touchEndX > touchStartX + 50) prevSlide(); // Swipe right -> Previous slide
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+        
+        // Prevent horizontal swipe from firing if user is just scrolling vertically up/down
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+            if (diffX < 0) nextSlide(); // Swipe left
+            if (diffX > 0) prevSlide(); // Swipe right
+        }
     }
 </script>
 
